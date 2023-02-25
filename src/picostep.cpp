@@ -128,16 +128,16 @@ void PicoStep::beepBlocking(unsigned frequency1, unsigned frequency2, unsigned d
     PWM_IN1->setPWM_Int(PIN_IN1, frequency1, SUBPHASE_MAX/2);
     PWM_IN2->setPWM_Int(PIN_IN2, frequency1, 0);
   }else{
-    PWM_IN1->setPWM_Int(PIN_IN1, 100, 0);
-    PWM_IN2->setPWM_Int(PIN_IN2, 100, 0);
+    PWM_IN1->setPWM_Int(PIN_IN1, PWM_COIL_FREQ, SUBPHASE_MAX);
+    PWM_IN2->setPWM_Int(PIN_IN2, PWM_COIL_FREQ, 0);
   }
   
   if(frequency2 > 0){
     PWM_IN3->setPWM_Int(PIN_IN3, frequency2, SUBPHASE_MAX/2);
     PWM_IN4->setPWM_Int(PIN_IN4, frequency2, 0);
   }else{
-    PWM_IN3->setPWM_Int(PIN_IN3, 100, 0);
-    PWM_IN4->setPWM_Int(PIN_IN4, 100, 0);
+    PWM_IN3->setPWM_Int(PIN_IN3, PWM_COIL_FREQ, SUBPHASE_MAX);
+    PWM_IN4->setPWM_Int(PIN_IN4, PWM_COIL_FREQ, 0);
   }
 
   delay(duration);
